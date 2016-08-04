@@ -1,0 +1,90 @@
+﻿<Window x:Class="SmartConverters.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SmartConverters"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="350"
+        Width="525"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="Bool2Vis" />
+        <local:BooleanToVisibilityConverter x:Key="Bool2Hidden"
+                                            FalseVisibility="Hidden" />
+        <local:BooleanToVisibilityConverter x:Key="Bool2Collapsed"
+                                            FalseVisibility="Collapsed" />
+        <local:BooleanToVisibilityConverter x:Key="BoolToCollapsedInverted"
+                                            Negate="True" />
+    </Window.Resources>
+    <Grid>
+        <Grid x:Name="grid1"
+              HorizontalAlignment="Left"
+              Margin="10,10,0,0"
+              VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Content="First Name:"
+                   Grid.Column="0"
+                   HorizontalAlignment="Left"
+                   Margin="3"
+                   Grid.Row="0"
+                   VerticalAlignment="Center" />
+            <TextBox x:Name="firstNameTextBox"
+                     Grid.Column="1"
+                     HorizontalAlignment="Left"
+                     Height="23"
+                     Margin="3"
+                     Grid.Row="0"
+                     VerticalAlignment="Center"
+                     Width="120"
+                     Text="{Binding User.FirstName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
+            <Label Content="Middle Name:"
+                   Grid.Column="0"
+                   HorizontalAlignment="Left"
+                   Margin="3"
+                   Grid.Row="1"
+                   VerticalAlignment="Center" />
+            <TextBox x:Name="middleNameTextBox"
+                     Grid.Column="1"
+                     HorizontalAlignment="Left"
+                     Height="23"
+                     Margin="3"
+                     Grid.Row="1"
+                     VerticalAlignment="Center"
+                     Width="120"
+                     Text="{Binding User.MiddleName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
+            <Label Content="Last Name:"
+                   Grid.Column="0"
+                   HorizontalAlignment="Left"
+                   Margin="3"
+                   Grid.Row="2"
+                   VerticalAlignment="Center" />
+            <TextBox x:Name="lastNameTextBox"
+                     Grid.Column="1"
+                     HorizontalAlignment="Left"
+                     Height="23"
+                     Margin="3"
+                     Grid.Row="2"
+                     VerticalAlignment="Center"
+                     Width="120"
+                     Text="{Binding User.LastName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
+        </Grid>
+        <Button x:Name="button"
+                Visibility="{Binding IsDirty, Converter={local:BooleanToVisibilityConverter FalseVisibility=Collapsed}}"
+                Click="OnSave"
+                Content="Save"
+                HorizontalAlignment="Left"
+                Margin="104,111,0,0"
+                VerticalAlignment="Top" />
+
+    </Grid>
+</Window>

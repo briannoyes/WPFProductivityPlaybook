@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="XamlNamespaces.Common.Controls.SomeLittleUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:XamlNamespaces.Common.Controls"
+             mc:Ignorable="d"
+             d:DesignHeight="300"
+             d:DesignWidth="300">
+    <Grid>
+        <Ellipse HorizontalAlignment="Left"
+                 Height="100"
+                 Margin="42,38,0,0"
+                 Stroke="Black"
+                 VerticalAlignment="Top"
+                 Width="100">
+            <Ellipse.Fill>
+                <LinearGradientBrush EndPoint="0.5,1"
+                                     StartPoint="0.5,0">
+                    <GradientStop Color="#FFF9F5F5"
+                                  Offset="0" />
+                    <GradientStop Color="#FFFC0606"
+                                  Offset="1" />
+                </LinearGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+        <Rectangle HorizontalAlignment="Left"
+                   Height="100"
+                   Margin="147,162,0,0"
+                   Stroke="Black"
+                   VerticalAlignment="Top"
+                   Width="100">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1"
+                                     StartPoint="0.5,0">
+                    <GradientStop Color="#FF0A42FE"
+                                  Offset="0" />
+                    <GradientStop Color="White"
+                                  Offset="1" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+    </Grid>
+</UserControl>

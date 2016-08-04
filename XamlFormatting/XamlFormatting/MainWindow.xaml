@@ -1,0 +1,19 @@
+﻿<Window x:Class="XamlFormatting.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:XamlFormatting" mc:Ignorable="d" Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <SolidColorBrush x:Key="ButtonBackground" Color="LightGray" />
+        <SolidColorBrush x:Key="buttonTextBrush" Color="DarkBlue" />
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+        <Button Name="dostuff" Content="Hello" />
+        <CheckBox Content="Enabled" x:Name="isEnabled" Grid.Row="1" />
+        <ToggleButton Command="{Binding ToggleCommand}" Content="{Binding ButtonText}" VerticalAlignment="Top" Width="150" Grid.Row="1" HorizontalAlignment="Center" Grid.Column="1" Margin="10,5,15,20" Background="{StaticResource ButtonBackground}" Click="ToggleButton_Click" x:Name="OnOffButton" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Title}" Grid.ColumnSpan="2" Height="{Binding ElementName=dostuff, Path=ActualHeight}" Foreground="{StaticResource buttonTextBrush}" />
+    </Grid>
+</Window>
