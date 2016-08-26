@@ -25,7 +25,6 @@
                 Height="25"
                 Content="Hello" />
         <ToggleButton x:Name="OnOffButton"
-                      Click="ToggleButton_Click"
                       Command="{Binding ToggleCommand}"
                       CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Title}"
                       Content="{Binding ButtonText}"
